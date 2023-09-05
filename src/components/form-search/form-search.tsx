@@ -3,9 +3,11 @@ import Form from 'react-bootstrap/Form';
 import Style from './form-search.module.css'
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { setSearchForm } from '../../services/form-search/form-search-slice';
+import { formSearchRequest } from '../../services/form-search/form-search-thunk';
 
 export function FormSearch() {
   const dispatch = useAppDispatch()
+
   const {fields: {
     name: {value: name},
     category: { value: category},
@@ -29,12 +31,18 @@ export function FormSearch() {
       }
     ))
   }
-  
-    return (<Form className={Style.container_form} >
+
+  const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    dispatch(formSearchRequest())
+  }
+
+
+    return (<Form onSubmit={onFormSubmit} className={Style.container_form} >
             <Form.Group className={Style.container_form_group_input} controlId="formBasicEmail">
               <Form.Control value={name} name='name' onChange={onChangeName} className={Style.input} 
               type="text" placeholder="name book" />
-                <Button className={Style.button} variant="primary" type="submit">
+                <Button  className={Style.button} variant="primary" type="submit">
                   Search
                 </Button>
             </Form.Group>
