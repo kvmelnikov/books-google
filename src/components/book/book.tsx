@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { TMakedBooks } from "../../types/types";
+import { TMakedBook } from "../../types/types";
 import Style from './book.module.css'
 
-export const Book: FC<TMakedBooks> = (props) =>{
+export const Book: FC<TMakedBook> = (props) =>{
 
 
     return  <div className={Style.card}>

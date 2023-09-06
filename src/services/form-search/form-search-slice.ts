@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { act } from "react-dom/test-utils";
 import { MAX_RES } from "../../constants/api";
+import { TFormAction } from "../../types/types";
 
 type TInitialState = {
         fields: {
@@ -8,17 +9,12 @@ type TInitialState = {
             category: {value: string}
             sorting: {value: string}
         }
-        page: number
         request: boolean
         failed: boolean
         success: boolean
 
 }
 
-type TFormAction = {
-    field: string
-    value: string
-}
 
 
 const initialState: TInitialState = {
@@ -27,14 +23,11 @@ const initialState: TInitialState = {
             category: {value: 'all' },    
             sorting: {value: 'relevance'}
         },
-        page: 0,
         request: false,
         failed: false,
         success: false,
         
 }
-
-
 
 const formSearchSlice = createSlice({
     name: 'formSearch',
@@ -48,9 +41,7 @@ const formSearchSlice = createSlice({
             }
             return state
         },
-        setCurrentPagePagination: (state) =>{
-            state.page = MAX_RES  
-        }
+
     }
 })
 

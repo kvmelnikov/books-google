@@ -48,7 +48,7 @@ export function FormSearch() {
             </Form.Group>
             <Form.Group className={Style.container_form_group_select} controlId="formBasicEmail">
             <Form.Select  value={category} onChange={onChangeSelect} name="category"  aria-label="Default select example">
-              <option value="all">all</option>
+              <option value="">all</option>
               <option value="art">art</option>
               <option value="computers">computers</option>
               <option value="history">history</option>
