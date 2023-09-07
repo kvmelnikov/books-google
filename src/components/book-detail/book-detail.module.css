@@ -17,10 +17,10 @@
   }
   
   .image > img {
-    width: 50%;
-    height: 50%;
-    object-fit:contain; 
-    object-position: center;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    object-position: top;
   }
 
   .detail__info {
