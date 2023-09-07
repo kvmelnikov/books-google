@@ -1,19 +1,18 @@
-import { useMemo, useState } from "react"
+import { useMemo } from "react"
 import { useAppDispatch, useAppSelector } from "../../hooks/hook"
 import Style  from "./books-list.module.css"
 import { Book } from "../book/book"
 import Button from 'react-bootstrap/Button';
 import { formSearchRequest } from "../../services/form-search/form-search-thunk";
+import { increasePage } from "../../services/books/books-slice";
 
 export const BooksList = () =>{
     const dispatch = useAppDispatch()
-    const [page, setPage] = useState<number>(0)
+    const page = useAppSelector((state)=> state.books.page)
     const books = useAppSelector((state)=> state.books.books)
     const {request, failed, success} = useAppSelector((state)=> state.formSearch)
 
     const onPaginated = () =>{
-        setPage(page + 1)
-        console.log(page)
         dispatch(formSearchRequest(page))
     } 
 

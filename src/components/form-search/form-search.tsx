@@ -4,10 +4,11 @@ import Style from './form-search.module.css'
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { setSearchForm } from '../../services/form-search/form-search-slice';
 import { formSearchRequest } from '../../services/form-search/form-search-thunk';
+import { useNavigate } from 'react-router-dom';
 
 export function FormSearch() {
   const dispatch = useAppDispatch()
-
+  const navigate = useNavigate()
   const {fields: {
     name: {value: name},
     category: { value: category},
@@ -34,6 +35,7 @@ export function FormSearch() {
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    navigate('/')
     dispatch(formSearchRequest())
   }
 
