@@ -34,15 +34,15 @@ export const makeBook = (book:TResponseSearchBook) => {
 
     modicatedBook.id = book.id
     modicatedBook.image = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ""
-    modicatedBook.authors = book.volumeInfo.authors ?  convert(book.volumeInfo.authors.join(', '), optionsConvert) : ""
+    modicatedBook.authors = book.volumeInfo.authors ?  convert(book.volumeInfo.authors.join(', ').slice(0,50), optionsConvert) : ""
     modicatedBook.category = book.volumeInfo.categories ? convert(book.volumeInfo.categories[0], optionsConvert) : ""
-    modicatedBook.title =  book.volumeInfo.title ? convert(book.volumeInfo.title, optionsConvert): ""
+    modicatedBook.title =  book.volumeInfo.title ? convert(book.volumeInfo.title.slice(0,40), optionsConvert): ""
     modicatedBook.link = book.selfLink
     return modicatedBook
 }
 
 
-export const makedBooks = (books: TResponseSearchBook[]) => {
+export const makeBooks = (books: TResponseSearchBook[]) => {
     let booksModificated: TMakedBook[] = [] 
 
     books.forEach((el)=>{

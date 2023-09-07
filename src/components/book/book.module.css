@@ -56,34 +56,24 @@
     padding: 10px;
   }
 
+  .card__category {
+    text-decoration: underline;
+    height: 20px;
+    max-width: 205px;
+  
+  }
+
   .card__title {
     height: 50px;
     font-size: 14px;
-    text-decoration: underline;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
+    max-width: 205px;
+
     
   }
 
   .card__authors {
     height: 50px;
     font-size: 12px;
-    display: flex;  
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
+    max-width: 205px;
   }
 
-  .card__category {
-    height: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-  }

@@ -1,16 +1,19 @@
-import { type } from "os"
+import { totalmem, type } from "os"
 import { TResponseSearchBook, TMakedBook, TDetailBook, TResponseDetailBook } from "../../types/types"
 import { createSlice } from "@reduxjs/toolkit"
 import { PayloadAction } from '@reduxjs/toolkit'
 import { act } from "react-dom/test-utils"
-import { makeDetailBook, makedBooks } from "./books-utils"
+import { makeDetailBook, makeBooks } from "./books-utils"
 import { stat } from "fs"
+import { MAX_RES } from "../../constants/api"
+import { check } from "prettier"
 
 type TInitialState = {
     books: TMakedBook[]
     bookDetail: TDetailBook
     totalItems: number
     page: number
+    checkAvialableBook: boolean
 }
 
 const initialState: TInitialState = {
@@ -23,7 +26,8 @@ const initialState: TInitialState = {
     authors: "",
     description:"" },
     totalItems: 0,
-    page: 0
+    page: 0,
+    checkAvialableBook: true
 }
 
 const booksSlice = createSlice({
@@ -31,11 +35,13 @@ const booksSlice = createSlice({
     initialState,
     reducers: {
         setBooks: (state, action: PayloadAction<TResponseSearchBook[]>) =>{
-            state.books = makedBooks(action.payload)
+            state.books = makeBooks(action.payload)
             state.page = state.page + 1
          },
         addedBooks: (state, action: PayloadAction<TResponseSearchBook[]>) =>{
-            state.books = state.books.concat(makedBooks(action.payload))
+            const makedBooks = makeBooks(action.payload)
+            makedBooks.length < 30 ? state.checkAvialableBook = false : state.checkAvialableBook = true 
+            state.books = state.books.concat(makeBooks(action.payload))
             state.page = state.page + 1
         },
         clearBooks: (state) =>{
@@ -50,6 +56,7 @@ const booksSlice = createSlice({
         setDetailBook: (state, action: PayloadAction<TResponseDetailBook>) =>{
             state.bookDetail = makeDetailBook(action.payload) 
         },
+  
         clearDetailBook: (state) => {
             state.bookDetail = {
             id: "",
@@ -63,5 +70,5 @@ const booksSlice = createSlice({
 }})
 
 
-export const {clearBooks,clearDetailBook, increasePage, setBooks, setTotalItems, addedBooks, setDetailBook} = booksSlice.actions
+export const {clearBooks, clearDetailBook, increasePage, setBooks, setTotalItems, addedBooks, setDetailBook} = booksSlice.actions
 export default booksSlice.reducer
