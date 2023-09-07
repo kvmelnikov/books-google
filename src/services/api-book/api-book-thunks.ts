@@ -3,14 +3,13 @@ import { RootState } from "../store";
 import { METHODS } from "http";
 import { addedBooks, clearBooks, clearDetailBook, setBooks, setDetailBook, setTotalItems } from "../books/books-slice";
 import { BASE_URL, MAX_RES } from "../../constants/api";
-import { clearSearchForm } from "./form-search-slice";
 export const API_KEY = 'AIzaSyB0mLN0Sofak2oVtSp8JvK4-W4AWjA6kIY'
 
 //TODO ПОЧИНИТЬ ALL
 //TODO ПОЧИНИТЬ API_KEY ENV
 
-export const formSearchRequest = createAsyncThunk<void, number | void,  { rejectValue: string; state: RootState }>(
-    'formSearch/formSearchRequest',
+export const getBooks = createAsyncThunk<void, number | void,  { rejectValue: string; state: RootState }>(
+    'apiBook/formSearchRequest',
     async(page: void | number = 0, thunkApi) =>{
             const category = thunkApi.getState().formSearch.fields.category
             const orderBy = thunkApi.getState().formSearch.fields.sorting
@@ -34,7 +33,7 @@ export const formSearchRequest = createAsyncThunk<void, number | void,  { reject
 )
 
 export const getDetailBook = createAsyncThunk<void, string,  { rejectValue: string; state: RootState }>(
-    'formSearch/getDetailBook',
+    'apiBook/getDetailBook',
      async(link, thunkApi) =>{
         thunkApi.dispatch(clearBooks())
         thunkApi.dispatch(clearDetailBook())

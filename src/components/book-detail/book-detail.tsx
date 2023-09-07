@@ -1,8 +1,9 @@
 import { useEffect, useMemo } from "react"
 import { useLocation } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../hooks/hook"
-import { getDetailBook } from "../../services/form-search/form-search-thunk"
 import Style from "./book-detail.module.css"
+import { Loader } from "../loader/loader"
+import { getDetailBook } from "../../services/api-book/api-book-thunks"
 
 export const BookDetail = () => {
     const location = useLocation()
@@ -18,7 +19,6 @@ export const BookDetail = () => {
     },[location])
 
 
-
     const content = useMemo(()=>{
         if(image) {
             return <div className={Style.container}>
@@ -32,7 +32,7 @@ export const BookDetail = () => {
                     </div>
         }
         else {
-            return <div>ХУЙ</div>
+            return <Loader/>
         }
         
     },[title, category,image])

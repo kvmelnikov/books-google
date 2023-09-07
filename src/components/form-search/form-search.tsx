@@ -3,8 +3,8 @@ import Form from 'react-bootstrap/Form';
 import Style from './form-search.module.css'
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { setSearchForm } from '../../services/form-search/form-search-slice';
-import { formSearchRequest } from '../../services/form-search/form-search-thunk';
 import { useNavigate } from 'react-router-dom';
+import { getBooks } from '../../services/api-book/api-book-thunks';
 
 export function FormSearch() {
   const dispatch = useAppDispatch()
@@ -36,7 +36,7 @@ export function FormSearch() {
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     navigate('/')
-    dispatch(formSearchRequest())
+    dispatch(getBooks())
   }
 
 

@@ -3,8 +3,9 @@ import { useAppDispatch, useAppSelector } from "../../hooks/hook"
 import Style  from "./books-list.module.css"
 import { Book } from "../book/book"
 import Button from 'react-bootstrap/Button';
-import { formSearchRequest } from "../../services/form-search/form-search-thunk";
 import { increasePage } from "../../services/books/books-slice";
+import { Loader } from "../loader/loader";
+import { getBooks } from "../../services/api-book/api-book-thunks";
 
 export const BooksList = () =>{
     const dispatch = useAppDispatch()
@@ -13,7 +14,7 @@ export const BooksList = () =>{
     const {request, failed, success} = useAppSelector((state)=> state.formSearch)
 
     const onPaginated = () =>{
-        dispatch(formSearchRequest(page))
+        dispatch(getBooks(page))
     } 
 
     const content = useMemo(()=>{
@@ -30,7 +31,7 @@ export const BooksList = () =>{
                     </div>
         }
         else{
-            return <div></div>
+            return <Loader/>
         }
 
     },[books,request, failed, success])
