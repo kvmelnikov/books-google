@@ -11,7 +11,7 @@ export const makeDetailBook = (book:TResponseDetailBook ) => {
     }
     bookDetail.id = book.id
     bookDetail.authors= book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : ''
-    bookDetail.category= book.volumeInfo.categories ? book.volumeInfo.categories.join(', ') :''
+    bookDetail.category= book.volumeInfo.categories ? book.volumeInfo.categories.join('/ ') :''
     bookDetail.description = book.volumeInfo.description ?  book.volumeInfo.description : ''
     bookDetail.title = book.volumeInfo.title ? book.volumeInfo.title : ''
     bookDetail.image = book.volumeInfo.title ? book.volumeInfo.imageLinks.thumbnail : ''

@@ -10,7 +10,7 @@ export function FormSearch() {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const {fields: {
-    name: {value: name},
+    searchTerm: {value: searchTerm},
     category: { value: category},
     sorting: { value: sorting}
   }} = useAppSelector((state)=>state.formSearch)
@@ -42,7 +42,7 @@ export function FormSearch() {
 
     return (<Form onSubmit={onFormSubmit} className={Style.container_form} >
             <Form.Group className={Style.container_form_group_input} controlId="formBasicEmail">
-              <Form.Control value={name} name='name' onChange={onChangeName} className={Style.input} 
+              <Form.Control value={searchTerm} name='searchTerm' onChange={onChangeName} className={Style.input} 
               type="text" placeholder="name book" />
                 <Button  className={Style.button} variant="primary" type="submit">
                   Search

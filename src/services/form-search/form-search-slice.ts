@@ -2,25 +2,25 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { act } from "react-dom/test-utils";
 import { MAX_RES } from "../../constants/api";
 import { TFormAction } from "../../types/types";
+import { stat } from "fs";
 
 type TInitialState = {
         fields: {
-            name: {value: string}
+            searchTerm: {value: string}
             category: {value: string}
             sorting: {value: string}
         }
         request: boolean
         failed: boolean
         success: boolean
-
 }
 
 
 
 const initialState: TInitialState = {
         fields: {
-            name: {value: ''},
-            category: {value: 'all' },    
+            searchTerm: {value: ''},
+            category: {value: '' },    
             sorting: {value: 'relevance'}
         },
         request: false,
@@ -41,13 +41,19 @@ const formSearchSlice = createSlice({
             }
             return state
         },
+        clearSearchForm: (state) => {
+            state.fields.category.value = ''
+            state.fields.searchTerm.value = ''
+            state.fields.sorting.value = 'relevance'
+        }
 
     }
 })
 
 
 export const {
-    setSearchForm
+    setSearchForm,
+    clearSearchForm
 } = formSearchSlice.actions
 
 export default formSearchSlice.reducer
