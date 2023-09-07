@@ -4,12 +4,15 @@ import Style from './main-page.module.css'
 
 export function MainPage() {
     return (
-        <>
-            <header className={Style.container}>
+        <>  
+        <header className={Style.container__header}>
                 <h1>Search for Books</h1>
                 <FormSearch/>
-            </header>
-            <Outlet></Outlet>
+        </header>
+        <main className={Style.container}>
+                <Outlet></Outlet>
+        </main>
+            
         </>
 
     )

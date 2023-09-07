@@ -1,17 +1,22 @@
-.container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
 
 .container__books {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 225px);
+    grid-template-columns: repeat(auto-fill, 200px);
     width: 100%;
-    max-width: 1000px; /* Ширина grid-контейнера */
+    max-width: 1200px; 
     justify-content: center;
-    justify-items: center; /* Размещаем карточку по центру */
-    column-gap: 30px; /* Отступ между колонками */
-    row-gap: 40px; /* Отступ между рядами */
+    justify-items: center; 
+    column-gap: 30px; 
+    row-gap: 40px; 
     margin: 0 auto;
+    padding-bottom: 10px;
 }
+
+.totalItems {
+    text-align: center;
+}
+
+.button__load {
+    width: 50%;
+    margin-bottom: 10px;
+  }

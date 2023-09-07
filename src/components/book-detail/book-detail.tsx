@@ -24,10 +24,22 @@ export const BookDetail = () => {
             return <div className={Style.container}>
                         <div className={Style.image}><img src={image} alt={title}/></div>
                         <div className={Style.detail__info}>
-                            <p>{category}</p>
-                            <p>{title}</p>
-                            <p>{authors}</p>
-                            <p>{description}</p>
+                            <div className={Style.category}>
+                                <p>Category:</p>
+                                <p>{category ? category : 'Not category'}</p>
+                            </div>
+                            <div className={Style.title}>
+                                <p>Title:</p>        
+                                <p>{title ? title : 'Not title'}</p>
+                            </div>
+                            <div className={Style.authors}>
+                                <p>Authors:</p>
+                                <p>{authors ? authors : 'Not authors'}</p>
+                            </div>
+                            <div className={Style.description}>
+                                <p>Description:</p>
+                                <p>{description ? description : 'Not Description'}</p>
+                            </div>
                         </div>
                     </div>
         }

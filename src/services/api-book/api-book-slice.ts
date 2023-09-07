@@ -54,8 +54,6 @@ const apiBookSlice = createSlice({
          })
 
        } })
-// export const {
-  
-// } = apiBookSlice.actions
 
-// export default apiBookSlice.reducer
+
+export default apiBookSlice.reducer

@@ -5,10 +5,12 @@ import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { setSearchForm } from '../../services/form-search/form-search-slice';
 import { useNavigate } from 'react-router-dom';
 import { getBooks } from '../../services/api-book/api-book-thunks';
+import { useRef } from 'react';
 
 export function FormSearch() {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+
   const {fields: {
     searchTerm: {value: searchTerm},
     category: { value: category},
@@ -25,6 +27,7 @@ export function FormSearch() {
   }
 
   const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    
     dispatch(setSearchForm(
       {
       field: e.target.name,
@@ -42,11 +45,13 @@ export function FormSearch() {
 
     return (<Form onSubmit={onFormSubmit} className={Style.container_form} >
             <Form.Group className={Style.container_form_group_input} controlId="formBasicEmail">
-              <Form.Control value={searchTerm} name='searchTerm' onChange={onChangeName} className={Style.input} 
+              <Form.Control  value={searchTerm} name='searchTerm' onChange={onChangeName} className={Style.input} 
               type="text" placeholder="name book" />
-                <Button  className={Style.button} variant="primary" type="submit">
+              
+               <Button  className={Style.button} variant="primary" type="submit">
                   Search
                 </Button>
+              
             </Form.Group>
             <Form.Group className={Style.container_form_group_select} controlId="formBasicEmail">
             <Form.Select  value={category} onChange={onChangeSelect} name="category"  aria-label="Default select example">

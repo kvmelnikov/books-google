@@ -9,6 +9,16 @@
     position: relative;
 }
 
+.card__link {
+  color: #212529;
+  text-decoration: none }
+
+  .card__link:hover {
+    color: #212529; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
 .card:hover {
     box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
   }
@@ -49,13 +59,28 @@
   .card__title {
     height: 50px;
     font-size: 14px;
+    text-decoration: underline;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    
   }
 
   .card__authors {
     height: 50px;
     font-size: 12px;
     display: flex;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+
+  .card__category {
+    height: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
