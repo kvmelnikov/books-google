@@ -1,5 +1,6 @@
 export type TMakedBook = {
   id: string
+  uuid: string
   image: string
   title: string
   category: string

@@ -1,6 +1,7 @@
 import { optionsConvert } from '../../constants/const'
 import { TDetailBook, TMakedBook, TResponseDetailBook, TResponseSearchBook } from '../../types/types'
 import { convert } from 'html-to-text'
+import { v4 as uuidv4 } from 'uuid';
 
 export const makeDetailBook = (book: TResponseDetailBook) => {
   const bookDetail: TDetailBook = {
@@ -25,6 +26,7 @@ export const makeDetailBook = (book: TResponseDetailBook) => {
 export const makeBook = (book: TResponseSearchBook) => {
   let modicatedBook: TMakedBook = {
     id: '',
+    uuid: '',
     image: '',
     title: '',
     category: '',
@@ -33,6 +35,7 @@ export const makeBook = (book: TResponseSearchBook) => {
   }
 
   modicatedBook.id = book.id
+  modicatedBook.uuid = uuidv4()
   modicatedBook.image = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ''
   modicatedBook.authors = book.volumeInfo.authors
     ? convert(book.volumeInfo.authors.join(', ').slice(0, 50), optionsConvert)

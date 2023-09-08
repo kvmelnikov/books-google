@@ -48,7 +48,7 @@ export const BooksList = () => {
           <section className={Style.container__books}>
             {books.map((el) => {
               return (
-                <article key={el.id}>
+                <article key={el.uuid}>
                   <Book {...el} />
                 </article>
               )
