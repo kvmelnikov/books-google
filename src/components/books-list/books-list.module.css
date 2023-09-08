@@ -1,22 +1,21 @@
-
 .container__books {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
-    width: 100%;
-    max-width: 1200px; 
-    justify-content: center;
-    justify-items: center; 
-    column-gap: 30px; 
-    row-gap: 40px; 
-    margin: 0 auto;
-    padding-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+  justify-items: center;
+  column-gap: 30px;
+  row-gap: 40px;
+  margin: 0 auto;
+  padding-bottom: 10px;
 }
 
 .totalItems {
-    text-align: center;
+  text-align: center;
 }
 
 .button__load {
-    width: 50%;
-    margin-bottom: 10px;
-  }
+  width: 50%;
+  margin-bottom: 10px;
+}

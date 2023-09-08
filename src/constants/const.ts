@@ -1,3 +1,3 @@
 export const optionsConvert = {
-    wordwrap: 130
+  wordwrap: 130,
 }

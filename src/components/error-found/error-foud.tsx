@@ -1,3 +1,3 @@
-export const ErrorFound = () =>{
-    return <div>Error request</div>
+export const ErrorFound = () => {
+  return <div>Error request</div>
 }

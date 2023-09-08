@@ -1,56 +1,53 @@
 .container_form {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .form_group_input {
-    width: 100%;
-    max-width: 600px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);
-    row-gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  row-gap: 10px;
 }
-
 
 .form_group_select {
-    width: 100%;
-    max-width: 600px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);
-    margin-top: 30px;
-    row-gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  margin-top: 30px;
+  row-gap: 10px;
 }
 
-
 .input {
-    max-width: 400px;
-    width: 80%;
-
+  max-width: 400px;
+  width: 80%;
 }
 
 .button {
-    width: 100%;
-    max-width: 200px;
-    justify-self: end;
+  width: 100%;
+  max-width: 200px;
+  justify-self: end;
 }
 
 @media screen and (max-width: 612px) {
-    .form_group_input {
-        justify-content: center;
-    }
-
-    .input {
-        width: 100%;
-    }
-
-    .button {
-        justify-self: center;
-    }
-
-    .form_group_select {
-        justify-content: center;
-    }
+  .form_group_input {
+    justify-content: center;
   }
+
+  .input {
+    width: 100%;
+  }
+
+  .button {
+    justify-self: center;
+  }
+
+  .form_group_select {
+    justify-content: center;
+  }
+}
