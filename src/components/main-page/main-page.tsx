@@ -1,17 +1,17 @@
-import { Outlet } from 'react-router-dom'
-import { FormSearch } from '../form-search/form-search'
+import { Outlet } from "react-router-dom"
+import { FormSearch } from "../form-search/form-search"
 import Style from './main-page.module.css'
+import { Header } from "../header/header"
 
 export function MainPage() {
-  return (
-    <>
-      <header className={Style.container__header}>
-        <h1>Search for Books</h1>
-        <FormSearch />
-      </header>
-      <main className={Style.container}>
-        <Outlet></Outlet>
-      </main>
-    </>
-  )
+    
+    return (
+        <> 
+         <Header/>
+         <main className={Style.container}>
+                <Outlet></Outlet>
+          </main>
+        </>
+
+    )
 }

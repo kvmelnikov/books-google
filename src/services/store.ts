@@ -7,7 +7,7 @@ export const store = configureStore({
   reducer: {
     formSearch: formSearchReducer,
     books: bookReducer,
-    bookApi: bookApiReducer,
+    bookApi: bookApiReducer
   },
 
   devTools: process.env.NODE_ENV !== 'production',
