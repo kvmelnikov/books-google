@@ -2,9 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 import { addedBooks, clearBooks, clearDetailBook, setBooks, setDetailBook, setTotalItems } from '../books/books-slice'
 import { API_KEY, BASE_URL, MAX_RES } from '../../constants/api'
-//export const API_KEY = 'AIzaSyCTSN1Fsj2WILNcnn5Qg-3zVqOwfssappE'
 
-//TODO ПОЧИНИТЬ API_KEY ENV
 
 export const getBooks = createAsyncThunk<void, number | void, { rejectValue: string; state: RootState }>(
   'apiBook/getBooks',
